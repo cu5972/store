@@ -1,0 +1,59 @@
+<%- include('header.html') -%>
+<!-- banner -->
+<div class="page-head">
+	<div class="container">
+		<h3><%= category.c_name %> </h3>
+	</div>
+</div>
+<!-- //banner -->
+<!-- mens -->
+<div class="men-wear">
+	<div class="container">
+		<div class="clearfix"></div>
+		<div class="single-pro">
+			<% goods_by.forEach(goods => { %>
+				<div class="col-md-3 product-men">
+					<div class="men-pro-item simpleCart_shelfItem">
+						<form method="post" action='/shop_car' id="car">
+							<div class="men-thumb-item">
+								<img src="<%= goods.image %> " width="250" height="250" alt="" class="pro-image-front">
+								<img src="<%= goods.image %>" width="250" height="250" alt="" class="pro-image-back">
+									<div class="men-cart-pro">
+										<div class="inner-men-cart-pro">
+											<a href="/goods/<%= goods.id %>" class="link-product-add-cart">快速查看</a>
+										</div>
+									</div>				
+							</div>
+							<div class="item-info-product ">
+								<% if (users) { %>
+									<input type="hidden" name="user_id" value="<%=users.id%>">
+									<input type="hidden" name="status" value="<%=users.status%>">
+								<% } %>
+								<input type="hidden" name="id" value="<%=goods.id%>">
+								<input type="hidden" name="name" value="<%=goods.name%>">
+								<input type="hidden" name="price" value="<%=goods.price%>">
+								<input type="hidden" name="image" value="<%=goods.image%>">
+								<input type="hidden" name="s_id" value="<%=goods.s_id%>">
+								<input type="hidden" name="count" value="1">
+								<h4><a href="/goods/<%= goods.id %>"><%= goods.name %></a></h4>
+								<div class="info-product-price">
+									<span class="item_price">$<%= goods.price %></span>
+									<del>$<%= goods.d_price %></del>
+								</div>
+								<% if (users) { %>
+									<input type="submit" class="item_add single-item hvr-outline-out button2" value="添加到购物车">
+									<% } else { %>
+									<h4>登录即可购买</h4>
+								<% } %>									
+							</div>
+						</form>
+					</div>
+				</div>
+			<% }) %>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+</div>	
+<!-- //mens -->
+<!-- //product-nav -->
+<%- include('footer.html')  -%>

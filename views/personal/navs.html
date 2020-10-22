@@ -1,0 +1,37 @@
+<div class="col-2 bg-white border-right nav-left p-0">
+    <% if (users.status==1) { %>
+        <div class="list-group list-group-flush border-top border-bottom mt-3 text-center">
+            <li class="list-group-item list-group-item-action">
+                <a href="/personal" class="text-decoration-none text-secondary">
+                    <i class="iconfont icon-zhanghuguanli pr-1"></i>账户管理
+                </a>
+            </li>
+            <li class="list-group-item list-group-item-action">
+                <a href="/order/list" class="text-decoration-none text-secondary">
+                    <i class="iconfont icon-neirongguanli pr-1"></i>订单管理
+                </a>
+            </li>
+        </div>
+        <% } else { %>
+            <div class="row text-center mt-3 px-5">
+                <a href="/personal/goods/add" class="btn btn-primary rounded-0 col">添加商品</a>
+            </div>
+            <div class="list-group list-group-flush border-top border-bottom mt-3 text-center">
+                <li class="list-group-item list-group-item-action">
+                    <a href="/personal/goods" class="text-decoration-none text-secondary">
+                        <i class="iconfont icon-neirongguanli pr-1"></i>商品管理
+                    </a>
+                </li>
+                <li class="list-group-item list-group-item-action">
+                    <a href="/order/list" class="text-decoration-none text-secondary">
+                        <i class="iconfont icon-neirongguanli pr-1"></i>订单管理
+                    </a>
+                </li>
+                <li class="list-group-item list-group-item-action">
+                    <a href="/personal" class="text-decoration-none text-secondary">
+                        <i class="iconfont icon-zhanghuguanli pr-1"></i>账户管理
+                    </a>
+                </li>
+            </div>
+    <% } %>
+</div>
